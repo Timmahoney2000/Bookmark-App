@@ -1,252 +1,203 @@
-/* Main Format */
-body {
-    text-align: center;
-    background-color: skyblue;
-}
-
-header {
-    background-color: #3FB1DE;
-    border-style: double;
-    border-width: 0 .4rem;
-    margin-left: 15%;
-    margin-right: 15%;
-    margin-top: -2%;
-    padding-top: 3rem;
-    padding-bottom: 2px;
-}
-
-.top {
+/* styling for header & home div */
+header h1, div.home{
     display: flex;
-    flex-direction: row;
     justify-content: center;
-    border-style: solid;
-    border-width: 0 .1rem .2rem .1rem;
-    margin-left: 15%;
-    margin-right: 15%;
-    margin-top: -1%;
-    padding-top: 25px;
-    padding-bottom: 15px;
-}
-
-#library {
-    border-style: solid;
-    border-width: 6px 4px 0px 4px;
-    border-color: black;
-    margin-top: 5%;
-    margin-left: 20%;
-    margin-right: 20%;
-    padding-bottom: 60%;
-    text-align: left;
-    /* padding-left: 2rem; */
-}
-
-#footer {
-    border-style: solid;
-    border-width: 10px 5px 0px 5px;
-    margin-left: 17.5%;
-    margin-right: 17.5%;
-    margin-bottom: 0%;
-}
-
-#creator {
-    text-align: center;
-    background-color: #2193C0;
-    border-style: groove;
-    border-width: 5px 7/5px 5px 7.5px;
-    margin-left: -12.5%;
-    margin-right: -12.5%;
-    padding-bottom: 2rem;
-}
-
-.hidden {
-    display: none;
-}
-
-/* Top Create Button + Star Filter Formatting + Fetch Button */
-#create {
-    width: 7.5rem;
-    height: 3rem;
-}
-
-.radio_star {
-    display: none;
-}
-
-.star-filter {
-    padding-right: 1rem;
-}
-
-#top-star-1 {
-    padding-left: 25rem;
-}
-
-#fetch {
-    
-}
-
-
-/* Library Item Formatting */
-.bookmark {
+  }
+  /* select button styling */
+   select.select{
+    height: 100%;
+    margin-top:35px;
+    background-color: #000000;
+    color: whitesmoke;
+  } 
+  /* styling for main page */
+  main{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+  } 
+  /* styling for expanded view & functionality */
+  .expands{
     display: flex;
-    flex-direction: row;   
-}
-
-    /*Condensed Block Formatting */
-    .condensed {
-        flex: 1;
-        border-style: double;
-        border-color: black;
-        border-width: 0 0 4px 0;
-        background-color: #2193C0;
-    }
-
-    .bookmark-left {
-        flex: 3;
-        display: flex;
-        flex-direction: row;
-        /* border-style: solid;
-        border-color: blue; */
-        padding: 0 0 0 1rem;
-    }
-
-        .title {
-            flex: .5;
-            /* border-style: solid;
-            border-color: slategrey; */
-        }
-
-        .star-rating {
-            flex: .5;
-            /* border-style: solid;
-            border-color: sienna; */
-            padding: .2rem 0 0 7rem;
-        }
-
-            .star-rating > img {
-                max-width: 25%;
-                height: auto;
-            }
-
-    .bookmark-right{
-        flex: 1;
-        /* border-style: solid;
-        border-color: green; */
-        background-color: #23A0D1;
-        padding: 1rem 0 0 5rem;
-    }
-
-    /* Expanded Block Formatting */
-    .expanded {
-        flex: 3;
-        border-style: double;
-        border-color: black;
-        border-width: 0 0 4px 0;
-    }
-
-    .bookmark-left-big {
-        display: flex;
-        flex-direction: column;
-        flex: 3;
-    }
-        .bookmark-top {
-            flex: 3;
-            display: flex;
-            flex-direction: row;
-            background-color: #2193C0;
-            border-style: dashed;
-            border-color: black;
-            border-width: 0 0 4px 0;
-        }
-
-            .bookmark-top-left {
-                flex: 1;
-                /* border-style: solid;
-                border-color: blue; */
-                padding-left: 1rem;
-            }
-
-            .expanded-star-rating {
-                flex: .5;
-                /* border-style: solid;
-                border-color: sienna; */
-                padding: .2rem 6rem 0 0;
-            }
-
-                .expanded-star-rating > img {
-                    max-width: 32%;
-                    height: auto;
-                }
-
-        .bookmark-middle-left {
-            flex: 3;
-            /* border-style: solid;
-            border-color: blue; */
-            background-color: #2EAADC;
-            padding-left: 2rem;
-        }
-
-        .bookmark-bottom-left {
-            flex: 3;
-            /* border-style: solid;
-            border-color: blue; */
-            background-color: #2EAADC;
-            padding-left: 2rem;
-        }
-
-    .bookmark-right-big {
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-        background-color: #23A0D1;
-        border-style: solid;
-        border-color: black;
-        border-width: 0 0 0 4px;
-    }
-
-        .bookmark-top-right {
-            flex: 1;
-            /* border-style: solid;
-            border-color: green; */
-            padding: 1rem 1rem 0 4rem;
-        }
-
-        .bookmark-middle-right {
-            flex: 1;
-            /* border-style: solid;
-            border-color: green; */
-            padding: 1rem 1rem 0 5rem;
-        }
-
-        .bookmark-bottom-right {
-            flex: 1;
-            /* border-style: solid;
-            border-color: green; */
-            padding: 1rem 1rem 0 4rem;
-        }
-
-.bookmark > button, .bookmark-right > button {
-    height: 25px;
-    width: 100px;
-}
-
-/* Creator Formatting */
-label {
-    padding-right: 1rem;
-}
-
-#creator-buttons {
+    flex-direction: column;
+    justify-content: center;
+  }
+  /* styling for bookmark list & functionality */
+  .list{
     display: flex;
-    flex-direction: row;
-    justify-content: center
-}
+    background-color: #0075f2;
+    border: solid #000000;
+    flex-direction: column;
+    margin: 1% 10%;
+    justify-content: center;
+  }
+  
+  /* styling for the 'radio' buttons */
+  .radio{
+    display: flex;
+    flex-direction: column;
+  }
+  /* form styling */
+  form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  /* styling for bookmark details  */
+  .item, .expand{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  /* styling for set column & rows  */
+    div.column, div.row{
+      display: flex;
+      flex-direction: column;
+      align-items: center;   
+    }
+  /* functionality for detailed view of bookmarks */
+  .expand{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  /* styling for home page */
+  .all, div.home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  /* styling for the unordered list */
+  div.list label, div.list input{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  /* styling for editing name of bookmark */
+  .changeName {
+    width:210px;
+  }
+  /* styling for editing bookmark rating */
+  .changeRating{
+    width: 80px;
+  }
+  /* styling for bookmark details */
+  label, div.item{
+    font-size: 20px;
+  }
+  
+  textarea {
+    display: flex;
+    flex:2;
+  }
+  
+  
+  
+  /* bulk of styles below */
+  
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding:0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  /* most text area stylings */
+  h1, h3, input, textarea, ::placeholder, label, div.item{
+    color: #000000
+  }
+  /* colors & font colors for detailed bookmark view */
+  div.expands label, div.expand{
+    color: #ffffff;
+    font-size: 20px;
+  }
+  /* main body */
+  body, textarea, input{
+    background-color: #ffeaee;
+    font-size: 20px;
+    color: #000000;
+  }
+  
+  form textarea, form input{
+    background-color: #0075f2;
+    font-size: 20px;
+  }
+  
+  .expand, .expands{
+    background-color: #7f675b;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Styling for buttons */
+  button.new, button.create, button.cancel, .button, button.edit, button.changeVals, button.delete {
+    padding: 10px 16px;
+    border: solid #000000;
+    background-color: #ffeaee;
+    color: #096b72;
+    font-family: 'Julee', cursive;
+    font-size: 20px;
+    margin: 20px;
+    text-decoration: none;
+  }
+  button:hover{background-color:black}
+  .button:hover{background-color:black}
+  /* styling for warning message box */
+  .warning{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  
+  }
+  /* styling for submit button */
+  #confirm {
+    display: none;
+    background-color: #0075f2;
+    color: #000000;
+    border: 1px solid #aaa;
+    position: fixed;
+    left: 10%;
+    top: 40%;
+    box-sizing: border-box;
+  }
+  /* styling for closing error message  */
+  button.yes {
+    background-color: #0075f2;
+    display: inline-block;
+    border-radius: 12px;
+    border: 4px solid #aaa;
+    padding: 5px;
+    cursor: pointer;
+    margin: 0 20%;
+  }
+  /* styling for confimation message */
+  #confirm .message {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  
 
-form > button {
-    justify-content: space-between;
-    padding-right: 2rem;
-    padding-left: 2rem;
-}
-
-.divider {
-    width: 4rem;
-    height: auto;
-}
+  /* --- Media queries  ---- */
+  /* for mobile first responsive design */
+  @media all and (min-width: 800px){
+  
+    .list {
+      margin: 1% 20%;
+    }
+  
+    div.home {
+      flex-direction: row;
+    }
+  
+     div.expand{
+      flex-direction: row;
+      justify-content: space-around;
+    }
+  }
