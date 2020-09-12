@@ -23,6 +23,7 @@ Check all validations in the API documentation(e.g. title & url field required)
 # (Extension feature - optional) I can edit the rating and description of a bookmark in my list
 
 # Technical Requirements
+
 Uses fetch AJAX calls and jQuery for DOM manipulation
 Use namespacing to adhere to good architecture practices
  -Minimal glabal variables
@@ -30,7 +31,7 @@ Use namespacing to adhere to good architecture practices
  -Logically grouped functions(e.g. API methods, store methods...)
  Keep your data our of the DOM
  -No direct DOM manipulation in your event handlers!
- -Follow the React-ful design pattern 0 change your state, re0render your component
+ -Follow the React-ful design pattern 0 change your state, re-render your component
  Uses semantic HTML
  Uses a responsive and mobile first design
  -Visually and functionally solid in viewpoints for mobile & desktop
