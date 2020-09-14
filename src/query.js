@@ -57,7 +57,7 @@ function homePage() {
   <div class= "main">
       <!--change button class "new" to "add"-->
       <button class= "add">Add Bookmark</button>
-      <!--changed select class "select" to "choose", changed "minimum-rating" to "star-rating"-->
+      <!--changed select class "select" to "choose"-->
      
   </div>
   <ul>
