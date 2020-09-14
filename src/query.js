@@ -82,7 +82,7 @@ function addForm() {
     <form id= "add-bookmark-form">
     <select class= "choose" name="star-rating" size= "1">
         <!--change option value names. good the way they are-->
-        <option value="0" disabled selected hidden>Minimum Rating</option>
+        <option value="0" disabled selected hidden>Rating</option>
         <option value="5" 5 Stars>5 Stars</option>
         <option value="4" 4 Stars>4 Stars</option>
         <option value="3" 3 Stars>3 Stars</option>
