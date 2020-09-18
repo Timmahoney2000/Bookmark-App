@@ -1,6 +1,6 @@
 # Bookmarks-App
 
-https://timmahoney2000.github.io/Bookmarks-App/
+https://timmahoney2000.github.io/Bookmark-App/
 
 # User Stories
 
