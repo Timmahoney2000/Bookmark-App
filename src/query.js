@@ -52,7 +52,7 @@ function addHtmlOpen(item) {
 } //I have no idea why this closing bracket is red but if I delete the code gets angry, so it stays
 
 //function for returning to the main home page
-function homePage() {
+ function homePage() {
   return `   <!--changed name of "home" to "main"-->
   <div class= "main">
       <!--change button class "new" to "add"-->
@@ -63,7 +63,7 @@ function homePage() {
   <ul>
 
   </ul> `
-}
+} 
 
 //function to add form into html via this js file
 function addForm() {
