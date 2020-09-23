@@ -40,7 +40,7 @@ function addHtmlOpen(item) {
      </div>
      <div class = 'expand'>
       ${item.desc} 
-      <a class = 'button' href='${item.url}';"}'>Link</a>
+      <a class = 'button' href='${item.url}';"}, target='_blank'>Link</a>
       <button class = 'edit'>Edit</button>
       <button class = 'delete'>Delete</button>
       
@@ -225,7 +225,7 @@ function newLink() {
   //jQuery call to 'main' for bookmark submit
   $('main').on('submit', '#addBookmark', function (event) {
     event.preventDefault();
-    store.expanded=null
+    store.store.expanded=null
     console.log('on submit', store)
     //console.log for checking errors on button click
     console.log('create button click');
@@ -349,7 +349,7 @@ function openEdit() {
     store.toggleChange();
     //variable to get 'item' from current bookmark target
     const id = getItemFromElement(event.currentTarget)
-    store.expanded=null
+    //store.expanded=null
     console.log('inside open edit', store)
     render()
   })
@@ -395,14 +395,14 @@ function editValue() {
             rating: rating
           })
            //toggles the change in store module
-          store.expanded=null
+          store.store.expanded=null
           store.toggleChange();
           render();
         })
         .catch((error) => {
           store.createError(error.message)
            //toggles the change in store module
-          store.expanded=null
+          store.store.expanded=null
           store.toggleChange();
           render()
         })
