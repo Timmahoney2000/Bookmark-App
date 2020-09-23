@@ -56,7 +56,7 @@ function addHtmlOpen(item) {
   return `   <!--changed name of "home" to "main"-->
   <div class= "main">
       <!--change button class "new" to "add"-->
-      <button class= "add">Add Bookmark</button>
+      <!--<button class= "add">Add Bookmark</button>-->
       <!--changed select class "select" to "choose"-->
      
   </div>
