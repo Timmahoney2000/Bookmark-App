@@ -66,7 +66,7 @@ function toggleOpen(val){
 }
 
 //function for updating the data of a bookmark in the store module
-function findUpdate(id, newData){
+function findAndUpdate(id, newData){
     //variable for item to add new data/update bookmark in store module using 'id'
   let item = this.store.bookmarks.find(element => element['id'] === id);
   Object.assign(item, newData);
@@ -83,7 +83,7 @@ export default {
   //changed to toggleChange
   toggleChange,
   toggleOpen,
-  findUpdate,
+  findAndUpdate,
   createError,
   addFalse,
   endError

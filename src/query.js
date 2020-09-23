@@ -99,9 +99,9 @@ function addForm() {
 
 //function for editing bookmarks in html via this js file
 function editValues(item) {
-  return `<li class="element" data-item-id="${item.id}">
+  return `<!--<li class="element" >-->
 <form>
-<div class = 'list'>
+<div class = 'list element' data-item-id="${item.id}">
   <div class = 'item'>
   <label for ='changeName'>Edit the Title!</label>  
   <input id = 'changeName' class ='changeName' type = 'text' value = "${item.title}">
@@ -124,7 +124,7 @@ function editValues(item) {
  </div>
 </div>
 </form>
-</li>`
+<!--</li>-->`
 }
 
 //creates strings from bookmarks for visibility
@@ -140,25 +140,26 @@ function render() {
   //add data to the store module
   let data = store.store
   //console.log('cldd');
-  //console.log(data);
+  console.log(data);
   if (data.error !== null) {
-    //alertMessage(data.error)
-    store.clearError
+    console.log(data.error)
+    store.endError()
 
   } else {
     if (data.add === false) {
-      //console.log('tacocat');
       //console logged tacocat to find a bug because it sounds funny & palindromes are cool
-      let items = [...store.store.bookmarks]
+      
       if (data.expanded !== null) {
+        console.log('tacocat');
         //maps through the stringified bookmarks
-        const newHtmlString = store.store.bookmarks.map(function (val) {
-          if (val.id === store.store.expanded) {
+        const newHtmlString = data.bookmarks.map(function (val) {
+          //what exactly is data.expanded?? and what is this comparison doing?
+          if (val.id === data.expanded) {
             if (data.editing === false) {
-              return addHtmlOpen(val)
+              return addHtmlOpen(val)//expands each bookmark
             } else {
 
-              return editValues(val)
+              return editValues(val)//expands a bookmark to edit the values(title, rating,desc)
             }
 
           } else {
@@ -170,10 +171,11 @@ function render() {
         $('ul').html(newHtmlString);
 
       } else {
-        // console.log('bigJoe');
-        //console logged 'bigJoe' because my large brother in law Joe helped me debug this app
-        const newBookmark = createString(items)
-        $('main').html(homePage())
+      //   console.log('bigJoe');
+       // console logged 'bigJoe' because my large brother in law Joe helped me debug this app
+       let items = [...data.bookmarks]
+        const newBookmark = createString(items)//creates the list
+        $('main').html(homePage())//creates 'add bookmark' button 
         $('ul').html(newBookmark)
       }
 
@@ -223,6 +225,8 @@ function newLink() {
   //jQuery call to 'main' for bookmark submit
   $('main').on('submit', '#addBookmark', function (event) {
     event.preventDefault();
+    store.expanded=null
+    console.log('on submit', store)
     //console.log for checking errors on button click
     console.log('create button click');
     //variable for calling jQuery to input title
@@ -253,9 +257,9 @@ function newLink() {
         .then(newItem => {
           //then & arrow function for pushing all info associated with users new bookmark to api
           store.addStore(newItem)
-          console.log(store);
           store.addFalse()
-          console.log(store);
+          store.expanded=null
+          location.reload(true);
           render()
         })
         .catch((error) => { //addStore toggleAdd? if error
@@ -345,6 +349,8 @@ function openEdit() {
     store.toggleChange();
     //variable to get 'item' from current bookmark target
     const id = getItemFromElement(event.currentTarget)
+    store.expanded=null
+    console.log('inside open edit', store)
     render()
   })
 }
@@ -354,6 +360,7 @@ function openEdit() {
 //this damn thing broke so many times I damn near gave up on it. Still not 100% sure it works correctly
 function editValue() {
   $('main').on('click', 'button.changeVals', function (event) {
+    event.preventDefault();
     //variable to jQuery for editing title of bookmark
     let title = $('input.changeName').val();
     //variable to jQuery for editing the url/link or bookmark
@@ -365,37 +372,44 @@ function editValue() {
     //variable to get 'id' from current bookmark
     const id = getItemIdFromElement(event.currentTarget)
     //console logged out title as it was giving me issues & now I'm too scared to remove it 
-    console.log(title)
+    console.log(event.currentTarget)
     //if & else if statements with boolean for creating rules/boundaries on editing. logic af up in here
     if (title.length < 1) {
       //alert messages through else if statements & booleans to warn user of incorrect editing
       alertMessage('Title required for new bookmarks')
     } else if (!link.includes('http') || link.length < 5) {
       alertMessage('Error! Valid URL required')
-    } else if (description.length < 1) {
+    } else if (desc.length < 1) {
       alertMessage(`Please add a description for your bookmark`)
     } else if (!rating || rating <= 0 || rating > 5) {
       alertMessage('Please choose a rating between 1 - 5 stars')
     } else {
       //updates bookmarks in api for editing purposes
-      api.updateBookmark(id, title, link, description, rating)
+      api.changeBookmark(id, title, link, desc, rating)
         .then(() => {
           //.then function to update the store function after editing bookmark
           store.findAndUpdate(id, {
             title: title,
             url: link,
-            desc: description,
+            desc: desc,
             rating: rating
           })
+           //toggles the change in store module
+          store.expanded=null
+          store.toggleChange();
           render();
         })
         .catch((error) => {
-          store.setError(error.message)
+          store.createError(error.message)
+           //toggles the change in store module
+          store.expanded=null
+          store.toggleChange();
           render()
         })
       //toggles the change in store module
-      store.toggleChange();
-      render()
+      //store.expanded=null
+      //store.toggleChange();
+      //render()
     }
   })
 }
