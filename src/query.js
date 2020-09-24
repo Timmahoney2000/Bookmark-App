@@ -40,7 +40,7 @@ function addHtmlOpen(item) {
      </div>
      <div class = 'expand'>
       ${item.desc} 
-      <a class = 'button' href='${item.url}' target='_blank'>Link</a>
+      <a class = 'button' href='${item.url}'>Link</a>
       <button class = 'edit'>Edit</button>
       <button class = 'delete'>Delete</button>
       
@@ -52,22 +52,18 @@ function addHtmlOpen(item) {
 } //I have no idea why this closing bracket is red but if I delete the code gets angry, so it stays
 
 //function for returning to the main home page
- function homePage() {
+function homePage() {
   return `   <!--changed name of "home" to "main"-->
   <div class= "main">
       <!--change button class "new" to "add"-->
       <button class= "add">Add Bookmark</button>
-<<<<<<< HEAD
-
-=======
->>>>>>> a3c2d2640ff587c6bf86c20f1dca9018597ec41f
       <!--changed select class "select" to "choose"-->
      
   </div>
   <ul>
 
   </ul> `
-} 
+}
 
 //function to add form into html via this js file
 function addForm() {
