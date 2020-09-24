@@ -40,7 +40,7 @@ function addHtmlOpen(item) {
      </div>
      <div class = 'expand'>
       ${item.desc} 
-      <a class = 'button' href='${item.url}'target="_blank">Link</a>
+      <a class = 'button' href='${item.url}' target='_blank'>Link</a>
       <button class = 'edit'>Edit</button>
       <button class = 'delete'>Delete</button>
       
